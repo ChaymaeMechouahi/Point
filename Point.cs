@@ -28,26 +28,28 @@ namespace exPoint
             get { return y; }
             set { y = value; }
         }
-        public float distance (Point p1, Point p2)
+        public float distance (Point p1, Point p2)//distance entre deux points 
         {
             float d = 0;
-            d = Math.Sqrt(((p1.x - p2.x) * (p1.x - p2.x)) + ((p1.y - p2.y) * (p1.y - p2.y)));
-            return d;
+            d = Math.Sqrt(((p1.x - p2.x) * (p1.x - p2.x)) + ((p1.y - p2.y) * (p1.y - p2.y)));//relation qui détermine la distance 
+            return d;//return la distance 
         }
-        public bool egalite (Point p1 , Point p2)
+        public bool egalite (Point p1 , Point p2) //s'assurer que deux point sont =
         {
-            return ((p1.x == p2.x) && (p1.y == p2.y));
+            return ((p1.x == p2.x) && (p1.y == p2.y));//comparaison de x et y des deux points  
         }
-        public void Translation(Point p1, int x1 , int y1)
+        public void Translation(Point p1, int x1 , int y1)//translation d'un point 
         {
-            p1.x = p1.x + x1;
-            p1.y = p1.y + y1;
+            p1.x = p1.x + x1;//move the x
+            p1.y = p1.y + y1;//move the y
         }
-        public bool lineaire (Point p1 , Point p2 , Point p3)
+        public bool lineaire (Point p1 , Point p2 , Point p3)// La linéarité de 3 points 
         {
             float cd1 = 0;//coefficient directeur 1
             float cd2 = 0;//coefficient directeur 2
-            return 
+            cd1 = (p2.y-p1.y)/(p2.x-p1.x);//calcul
+            cd2 = (p3.y-p1.y)/(p3.x-p1.x);//calcul
+            return (cd1 == cd2);//return se fera selon la comparaison 
         }
     }
     //********** La Classe Droite ******** //
