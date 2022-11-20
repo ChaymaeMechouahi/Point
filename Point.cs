@@ -28,7 +28,27 @@ namespace exPoint
             get { return y; }
             set { y = value; }
         }
-
+        public float distance (Point p1, Point p2)
+        {
+            float d = 0;
+            d = Math.Sqrt(((p1.x - p2.x) * (p1.x - p2.x)) + ((p1.y - p2.y) * (p1.y - p2.y)));
+            return d;
+        }
+        public bool egalite (Point p1 , Point p2)
+        {
+            return ((p1.x == p2.x) && (p1.y == p2.y));
+        }
+        public void Translation(Point p1, int x1 , int y1)
+        {
+            p1.x = p1.x + x1;
+            p1.y = p1.y + y1;
+        }
+        public bool lineaire (Point p1 , Point p2 , Point p3)
+        {
+            float cd1 = 0;//coefficient directeur 1
+            float cd2 = 0;//coefficient directeur 2
+            return 
+        }
     }
     //********** La Classe Droite ******** //
     public class Droite 
