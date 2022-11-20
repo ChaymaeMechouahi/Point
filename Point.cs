@@ -72,6 +72,19 @@ namespace exPoint
             get { return ext2; }
             set { ext2 = value; }
         }
+        public bool egalite ( Droite d1 , Droite d2)//s'assurer que deux droites  sont =
+        {
+            return ((d1.ext1 == d2.ext1) && (d1.ext2 == d2.ext2));//return la valeur de l'expression if false or true  
+        }
+        public bool parallele(Droite d1, Droite d2)//s'assurer que deux droites  sont paralléles
+        {
+            return ; 
+        }
+        public bool intersection(Droite d1, Droite d2)//s'assurer que deux droites  sont en intersection
+        {
+            return ((d1.ext1 == d2.ext1) && (d1.ext2 == d2.ext2));  
+        }
+
     }
     //*************La classe circle ********/
     public class Circle
