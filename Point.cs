@@ -57,8 +57,10 @@ namespace exPoint
     {
         Point ext1 ;//extrémité 1 de la droite 
         Point ext2;//extrémité 2 de la droite
+        Point vect;//vecteur directeur
         public Droite (int x1, int x2, int y1, int y2)//constructeur 
         {
+            vect = new Point(x1 - x2, y1-y2);//vecteur directeur initialisation
             ext1 = new Point(x1, y1);//initilaisation de premiere extremite : instance de la classe point 
             ext2 = new Point(x2, y2);//initilaisation de deuxieme  extremite : instance de la classe point 
         }
@@ -72,17 +74,28 @@ namespace exPoint
             get { return ext2; }
             set { ext2 = value; }
         }
-        public bool egalite ( Droite d1 , Droite d2)//s'assurer que deux droites  sont =
+           public Point vecteurd //setters getters vecteur directeur
         {
-            return ((d1.ext1 == d2.ext1) && (d1.ext2 == d2.ext2));//return la valeur de l'expression if false or true  
+            get { return vect; }
+            set { vect = value; }
         }
-        public bool parallele(Droite d1, Droite d2)//s'assurer que deux droites  sont paralléles
+        public bool egalite ( Droite d1 )//s'assurer que deux droites  sont =
         {
-            return ; 
+            return ((d1.ext1 == this.ext1) && (d1.ext2 == this.ext2));//return la valeur de l'expression if false or true  
         }
-        public bool intersection(Droite d1, Droite d2)//s'assurer que deux droites  sont en intersection
+         public bool paralelle(Droite t)//deux droites parallèles
         {
-            return ((d1.ext1 == d2.ext1) && (d1.ext2 == d2.ext2));  
+            double k1 = (this.p1.x - this.p2.x)/vect.x;
+            double k2 = (this.p1.y - this.p2.y)/vect.y;
+            if (k1 == k2)
+            {
+                return true;
+            }
+            return false;
+        }
+        public bool intersection(Droite d1)//s'assurer que deux droites  sont en intersection
+        {
+            return !(this.parallele(d1));  //s'ils ne sont pa sparallèles donc ils sont en intersection
         }
 
     }
@@ -106,9 +119,49 @@ namespace exPoint
             get { return rayon; }
             set { rayon = value; }
         }
+        public double air ()
+        {
+            double resultat ;
+            resultat = 3.14 * this.rayon * this.rayon;
+            return resultat;
+        }
+        public double circon ()
+        {
+             double resultat ;
+            resultat = 3.14 * this.rayon *2;
+            return resultat;
+        }
+        public bool equal(Circle c1)
+        {
+        return(this.air()==c1.air())
+        }
     }
-    public class Elipsse
+    public class Ellipse
     {
-
+       private double  E_longueur ;
+        private double E_largeur ;
+        private Point center ;
+        public Ellipse (double longueur , double largeur ,Point centre)
+        {
+           E_longueur=longueur;
+            E_largeur = largeur ;
+            center = new Point();
+        }    
+        public double E_largeur1
+        {
+        get {return E_largeur;}
+         set {E_largeur = value;}
+        }
+         public double E_longueur1
+        {
+        get {return E_longueur;}
+         set {E_longueur = value;}
+        }
+          public Point centre
+        {
+        get {return center;}
+         set {center = value;}
+        }
+        
     }
 }
